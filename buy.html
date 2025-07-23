@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Purchase</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #222;
+    }
+    header {
+      background: #005bea;
+      color: white;
+      padding: 30px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .box {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .price {
+      color: #00a884;
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+    .qr img {
+      max-width: 250px;
+      margin: 20px auto;
+      border-radius: 12px;
+      border: 5px solid #00a884;
+    }
+    .upi {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #444;
+    }
+    .telegram a {
+      display: inline-block;
+      margin-top: 20px;
+      background: #0088cc;
+      padding: 12px 24px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const course = urlParams.get('course') || 'Course';
+      const price = urlParams.get('price') || '0000';
+
+      document.getElementById('course-name').innerText = course + " Course";
+      document.getElementById('price-amount').innerText = `Pay ₹${price} via UPI`;
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Confirm Your Purchase</h1>
+  </header>
+  <div class="box">
+    <h2 id="course-name">Course</h2>
+    <p class="price" id="price-amount">Pay ₹---- via UPI</p>
+    <div class="qr">
+      <img src="qr.jpg" alt="UPI QR">
+    </div>
+    <p class="upi">UPI ID: <code>rajaraman@fam</code></p>
+    <p class="note">After payment, send the screenshot to our Telegram channel to receive your course access.</p>
+    <div class="telegram">
+      <a href="https://t.me/quotexbugsignalsprovider" target="_blank">Send Screenshot on Telegram</a>
+    </div>
+  </div>
+</body>
+</html>
